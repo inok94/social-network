@@ -24,18 +24,15 @@ Route::group(['middleware' => ['web']],
                 'uses' => 'UserController@postSignUp',
                 'as'   => 'signup',
             ]);
+        Route::post(
+            '/signin',
+            [
+                'uses' => 'UserController@postSignIn',
+                'as'   => 'signin',
+            ]);
+        Route::get('/dashboard',
+            [
+                'uses' => 'UserController@getDashboard',
+                'as'   => 'dashboard',
+            ]);
     });
-
-// Route::middleware(['web'])->group(function () {
-//     Route::get('/',
-//         function () {
-//             return view('welcome');
-//         });
-//
-//     Route::post(
-//         '/signup',
-//         [
-//             'user' => 'UserController@postSignUp',
-//             'as'   => 'signup',
-//         ]);
-// });
